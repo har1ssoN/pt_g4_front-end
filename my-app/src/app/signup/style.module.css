@@ -1,0 +1,15 @@
+.input {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    width: 50%;
+    border: black 1px solid;
+}
+
+.botao {
+    background-color:#A4FED3;
+    padding: 10px;
+    border-radius: 10px;
+    border: black 2px solid;
+    width: 20%;
+}
