@@ -7,7 +7,7 @@ export default function Signup() {
     return(
         <div className="telainteira flex flex-row">
             <div className="form-image">
-                <Image src={IMG} width={400} height={400} className="w-[50vw] h-[100vh]"  />
+                <Image src={IMG} width={400} height={400} className="w-[50vw] h-[100vh]" alt={""}  />
             </div>
 
             <div className="form flex flex-col items-center w-[50vw] h-[100vh] justify-evenly bg-[#EDEDED]">
@@ -26,6 +26,7 @@ export default function Signup() {
                 <button className={style.botao}>Criar conta</button>
                 </div>
             </div>
+
             
         </div>        
     )
