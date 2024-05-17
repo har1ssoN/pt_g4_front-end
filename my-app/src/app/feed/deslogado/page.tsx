@@ -1,12 +1,12 @@
 'use client';
 import React from 'react'
-import Cabecalho from '@/componentes/header'
+import Cabecalho from '@/componentes/header deslogado'
 import Professor from '@/componentes/caixa professor'
 
 
 const page = () => {
   return (
-      <main className='bg-[#b0b0b0]'>
+      <main className='bg-[#ededed]'>
         <Cabecalho />
         <div className='justify-center w-11/12 mx-auto'>
 
@@ -16,9 +16,9 @@ const page = () => {
                 Novos Professores
               </h1>
             </div>
-            <div className='bg-[#ffffff] cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
+            <div className='bg-[#ffffff] flex items-center justify-between cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
               <img src="/lupa.svg" alt="" />
-              <h2>Buscar Professor(a)</h2>
+              <h2 className='w-full'>Buscar Professor(a)</h2>
             </div>
           </div>
 
@@ -49,7 +49,7 @@ const page = () => {
                 Todos os Professores
               </h1>
             </div>
-            <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer'>
+            <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
               Ordenar
             </div>
           </div>
