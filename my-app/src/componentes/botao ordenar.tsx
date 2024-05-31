@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Modal.module.css"; 
+import styles from "./ordenar.module.css"; 
 
 export default function Modal({ isOpen }) {
   if (isOpen) {

@@ -18,7 +18,8 @@ const page = () => {
             </div>
             <div className='bg-[#ffffff] flex items-center justify-between cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
               <img src="/lupa.svg" alt="" />
-              <h2 className='w-full'>Buscar Professor(a)</h2>
+
+              <input type="text" placeholder='Buscar Professor(a)' className='flex-auto '/>
             </div>
           </div>
 
@@ -50,7 +51,9 @@ const page = () => {
               </h1>
             </div>
             <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
-              Ordenar
+              <button>
+                Ordenar
+              </button>
             </div>
           </div>
 

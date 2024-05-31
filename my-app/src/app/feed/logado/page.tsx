@@ -2,11 +2,13 @@
 import React, { useState } from 'react';
 import Professor from '@/componentes/caixa professor';
 import CabecalhoLogado from '@/componentes/header logado';
-import Modal from '@/componentes/modais/modal1';
+import Modal from '@/componentes/botao ordenar';
+import NovaPub from '@/componentes/nova publicacao';
+
 
 const Page = () => {
   const [openModal, setOpenModal] = useState(false);
-
+  const [openNovaPub, setOpenNovaPub] = useState(false);
   return (
     <main className='bg-[#ededed]'>
       <CabecalhoLogado />
@@ -40,9 +42,11 @@ const Page = () => {
           </div>
           <div className='flex items-center'>
             <div className='bg-[#00abed] text-white rounded-full w-auto h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
-              <button>Nova Publicação</button>
+              <button onClick={() => setOpenNovaPub(true)}>Nova Publicação</button>
+              <NovaPub isOpen={openNovaPub} onClose={() => setOpenNovaPub(false)} />
             </div>
-            <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
+            <div className='bg-[#00abed]
+             text-white rounded-full w-36 h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
               <button onClick={() => setOpenModal(true)}>Ordenar</button>
               <Modal isOpen={openModal} onClose={() => setOpenModal(false)} />
             </div>
