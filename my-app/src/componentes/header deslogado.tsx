@@ -6,11 +6,11 @@ const CabecalhoDeslogado = () => {
         <div className=''>
           <img src='/image 2.svg' alt=''/>
         </div>
-        <button>
-          <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
+        <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
+          <button>
             Login
-          </div>
-        </button>
+          </button>
+        </div>
       </header>
   )
 }
