@@ -2,12 +2,13 @@
 import React from 'react'
 import Cabecalho from '@/componentes/header deslogado'
 import Professor from '@/componentes/caixa professor'
+import CabecalhoDeslogado from '@/componentes/header deslogado';
 
 
 const page = () => {
   return (
       <main className='bg-[#ededed]'>
-        <Cabecalho />
+        <CabecalhoDeslogado />
         <div className='justify-center w-11/12 mx-auto'>
 
           <div className='flex justify-between m-4 mx-auto w-5/6 text-center place-content-center'>
@@ -17,8 +18,8 @@ const page = () => {
               </h1>
             </div>
             <div className='bg-[#ffffff] flex items-center justify-between cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
-              <img src="/lupa.svg" alt="" />
-              <h2 className='w-full'>Buscar Professor(a)</h2>
+              <button><img src="/lupa.svg" alt="" /></button>
+              <input type="text" placeholder='Buscar Professor(a)' className='cursor-pointer rounded-full'/>
             </div>
           </div>
 

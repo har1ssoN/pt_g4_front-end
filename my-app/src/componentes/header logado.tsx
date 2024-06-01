@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 
 const CabecalhoLogado = () => {
   return (
@@ -8,14 +7,16 @@ const CabecalhoLogado = () => {
           <img src='/image 2.svg' alt=''/>
         </div>
         <div className='flex gap-8 items-center'>
-            <div className='gap-8'>
-                <img src="/sino.svg" alt="" />
+            <div className='mx-20'>
+              <button><img src="/sino.svg" alt="" /></button>
             </div>
+
             <div>
-                <img src="/morty logado.svg" alt="" />
+              <button><img src="/morty logado.svg" alt="" /></button>
             </div>
+
             <div>
-                <img src="/porta deslogar.svg" alt="" />
+              <button><img src="/porta deslogar.svg" alt="" /></button>
             </div>
         </div>
       </header>

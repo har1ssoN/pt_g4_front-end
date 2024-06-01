@@ -18,7 +18,7 @@ const Page = () => {
             </h1>
           </div>
           <div className='bg-[#ffffff] flex items-center justify-between cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
-            <img src="/lupa.svg" alt="Search" />
+            <button><img src="/lupa.svg" alt="Search" /></button>
             <input type="text" placeholder='Buscar Professor(a)' className='cursor-pointer rounded-full'/>
           </div>
         </div>

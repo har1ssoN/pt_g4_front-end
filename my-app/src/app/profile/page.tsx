@@ -1,17 +1,10 @@
+import CabecalhoLogado from '@/componentes/header logado';
 import React from 'react';
 export default function Profile() {
     return (
         <div className="telainteira flex flex-col">
-            <div className="header flex w-full h-15 px-4 py-4 bg-[#A4FED3]">
-                <img src="/unb_logo.png" className="h-8 w-16" alt="" />
-                <div className="right-images flex flex-row justify-end w-full bg-[#A4FED3]">
-                    <button><img src="/notificacao.png" className="h-8 w-8 mx-20" alt="" /></button>
-                    <button><img src="/morty.png" className="rounded-full  h-9 w-9 mx-2" alt="" /></button>
-                    <button><img src="/sair.png" className="h-8 w-8 mx-2" alt="" /></button>
+            <CabecalhoLogado />
 
-                </div>
-
-            </div>
             <div className="bg-gray-200 flex justify-center">
                 <div className="relative h-full bg-white w-2/5">
                     <div className="quadrado_verde flex w-full h-32 bg-green-400">
@@ -32,12 +25,12 @@ export default function Profile() {
                         <div className="divide-y divide-black">
                             <div className="flex w-full ">
                                 <div className="justify-normal "></div>
-                                <p className="ml-16 mt-24 mb-3 text-sm">
+                                <div className="ml-16 mt-24 mb-3 text-sm">
                                     <p className='font-bold'>Morty Gamer</p>
                                     Ciência da Computação  / Dept. Ciência da Computação <br />
                                     morty.gamer.23@cjr.org.br <br />
 
-                                </p>
+                                </div>
                             </div>
                             <p className='font-bold text-sm'>Publicações</p>
                         </div>
