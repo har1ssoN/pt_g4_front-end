@@ -1,6 +1,9 @@
-import React from "react";
+'use client';
+import React, { useState } from 'react';
+import EditComentario from './editar comentario';
 
 const Avaliacao = () => {
+    const [openEdit, setOpenEdit] = useState(false);
     return (
         <>
             <article className="flex flex-row justify-left bg-[#3eee9a] rounded-3xl px-4 py-4 mx-2 my-6">
@@ -20,7 +23,8 @@ const Avaliacao = () => {
                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                         </div>
                         <div>
-                            <button><img src="/edit.svg" className='h-4 w-4 mx-4' alt="" /></button>
+                            <button onClick={() => setOpenEdit(true)}><img src="/edit.svg" className='h-4 w-4 mx-4' alt="" /></button>
+                            <EditComentario isOpen={openEdit} onClose={() => setOpenEdit(false)} />
                             <button><img src="/lixeira.svg" className='h-4 w-4' alt="" /></button>
                         </div>
 
