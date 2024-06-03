@@ -1,9 +1,14 @@
-'use client';
 import React, { useState } from 'react';
 import EditComentario from './editar comentario';
 
-const Avaliacao = () => {
-    const [openEdit, setOpenEdit] = useState(false);
+const Avaliacao = ({ setOpenEdit }) => {
+    const [openEdit, setLocalOpenEdit] = useState(false);
+
+    const handleOpenEdit = (isOpen) => {
+        setLocalOpenEdit(isOpen);
+        setOpenEdit(isOpen);
+    };
+
     return (
         <>
             <article className="flex flex-row justify-left bg-[#3eee9a] rounded-3xl px-4 py-4 mx-2 my-6">
@@ -23,17 +28,16 @@ const Avaliacao = () => {
                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                         </div>
                         <div>
-                            <button onClick={() => setOpenEdit(true)}><img src="/edit.svg" className='h-4 w-4 mx-4' alt="" /></button>
-                            <EditComentario isOpen={openEdit} onClose={() => setOpenEdit(false)} />
+                            <button onClick={() => handleOpenEdit(true)}><img src="/edit.svg" className='h-4 w-4 mx-4' alt="" /></button>
+                            <EditComentario isOpen={openEdit} onClose={() => handleOpenEdit(false)} />
                             <button><img src="/lixeira.svg" className='h-4 w-4' alt="" /></button>
                         </div>
-
                     </div>
                 </div>
             </article>
             <div className='border-2 border-[#efefef]'></div>
         </>
-    )
-}
+    );
+};
 
-export default Avaliacao
+export default Avaliacao;
