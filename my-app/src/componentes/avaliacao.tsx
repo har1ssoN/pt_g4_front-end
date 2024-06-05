@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import EditComentario from './editar comentario';
+import ModalComentarios from './postar novo comentario';
 
 const Avaliacao = ({ setOpenEdit }) => {
     const [openEdit, setLocalOpenEdit] = useState(false);
+    const [openComentarios, setOpenComentarios] = useState(false);
 
     const handleOpenEdit = (isOpen) => {
         setLocalOpenEdit(isOpen);
         setOpenEdit(isOpen);
+    };
+
+    const handleOpenComentarios = (isOpen) => {
+        setOpenComentarios(isOpen);
     };
 
     return (
@@ -24,11 +30,15 @@ const Avaliacao = ({ setOpenEdit }) => {
                     </p>
                     <div className='flex items-center justify-between'>
                         <div className='flex'>
-                            <button><img src="/comentarios.svg" className='h-7 w-7' alt="" /></button>
+                            <button onClick={() => handleOpenComentarios(true)}>
+                                <img src="/comentarios.svg" className='h-7 w-7' alt="" />
+                            </button>
                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                         </div>
                         <div>
-                            <button onClick={() => handleOpenEdit(true)}><img src="/edit.svg" className='h-4 w-4 mx-4' alt="" /></button>
+                            <button onClick={() => handleOpenEdit(true)}>
+                                <img src="/edit.svg" className='h-4 w-4 mx-4' alt="" />
+                            </button>
                             <EditComentario isOpen={openEdit} onClose={() => handleOpenEdit(false)} />
                             <button><img src="/lixeira.svg" className='h-4 w-4' alt="" /></button>
                         </div>
@@ -36,6 +46,7 @@ const Avaliacao = ({ setOpenEdit }) => {
                 </div>
             </article>
             <div className='border-2 border-[#efefef]'></div>
+            <ModalComentarios isOpen={openComentarios} onClose={() => handleOpenComentarios(false)} />
         </>
     );
 };

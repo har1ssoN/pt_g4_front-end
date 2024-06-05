@@ -21,7 +21,7 @@ const Page = () => {
           </div>
           <div className='bg-[#ffffff] flex items-center justify-between cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
             <button><img src="/lupa.svg" alt="Search" /></button>
-            <input type="text" placeholder='Buscar Professor(a)' className='cursor-pointer rounded-full'/>
+            <input type="text" placeholder='Buscar Professor(a)' className='cursor-pointer rounded-full focus:outline-none'/>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ const Page = () => {
               <NovaPub isOpen={openNovaPub} onClose={() => setOpenNovaPub(false)} />
             </div>
             <div className='bg-[#00abed]
-             text-white rounded-full w-36 h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
+             text-white rounded-full w-36 h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl z-50'>
               <button onClick={() => setOpenModal(true)}>Ordenar</button>
               <Modal isOpen={openModal} onClose={() => setOpenModal(false)} />
             </div>

@@ -6,11 +6,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border: white;
     border-color: #ffffff;
-    z-index: 1000;
+    width: 200px;
     
   }
 
 .linha {
-  z-index: 10000;
   color: black;
 }
