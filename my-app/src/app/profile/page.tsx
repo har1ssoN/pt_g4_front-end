@@ -2,10 +2,24 @@
 import React, { useState } from 'react';
 import EditarPerfil from '@/componentes/editar perfil';
 import CabecalhoLogado from '@/componentes/header logado';
+import EditComentario from '@/componentes/editar comentario';
+import ModalComentarios from '@/componentes/postar novo comentario';
 
 export default function Profile() {
     const [openEditarPerfil, setOpenEditarPerfil] = useState(false);
-    
+    const [openEdit, setLocalOpenEdit] = useState(false);
+    const [openComentarios, setOpenComentarios] = useState(false);
+
+    const handleOpenEdit = (isOpen) => {
+        setLocalOpenEdit(isOpen);
+        setOpenEdit(isOpen);
+    };
+
+    const handleOpenComentarios = (isOpen) => {
+        setOpenComentarios(isOpen);
+    };
+
+
     return (
         <div className="telainteira flex flex-col">
             <CabecalhoLogado />
@@ -52,11 +66,13 @@ export default function Profile() {
                                     </p>
                                     <div className='flex items-center justify-between'>
                                         <div className='flex'>
-                                            <button><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
+                                            <button onClick={() => handleOpenComentarios(true)}><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
+                                            <ModalComentarios isOpen={openComentarios} onClose={() => handleOpenComentarios(false)} />
                                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                                         </div>
                                         <div>
-                                            <button><img src="resposta.png" className='h-4 w-4 mx-4' alt="" /></button>
+                                            <button onClick={() => handleOpenEdit(true)}><img src="resposta.png" className='h-4 w-4 mx-4' alt="" /></button>
+                                            <EditComentario isOpen={openEdit} onClose={() => handleOpenEdit(false)} />
                                             <button><img src="lixeira.png" className='h-4 w-4' alt="" /></button>
                                         </div>
                                     </div>
@@ -73,12 +89,14 @@ export default function Profile() {
                                     </p>
                                     <div className='flex items-center justify-between'>
                                         <div className='flex'>
-                                            <button><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
+                                        <button onClick={() => handleOpenComentarios(true)}><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
+                                        <ModalComentarios isOpen={openComentarios} onClose={() => handleOpenComentarios(false)} />
                                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                                         </div>
                                     </div>
                                     <div>
-                                        <button><img src="resposta.png" className='h-4 w-4 mx-4' alt="" /></button>
+                                    <button onClick={() => handleOpenEdit(true)}><img src="resposta.png" className='h-4 w-4 mx-4' alt="" /></button>
+                                    <EditComentario isOpen={openEdit} onClose={() => handleOpenEdit(false)} />
                                         <button><img src="lixeira.png" className='h-4 w-4' alt="" /></button>
                                     </div>
                                 </div>
