@@ -1,11 +1,12 @@
 'use client';
-import React from 'react'
+import React, { useState } from 'react';
 import Cabecalho from '@/componentes/header deslogado'
 import Professor from '@/componentes/caixa professor'
 import CabecalhoDeslogado from '@/componentes/header deslogado';
-
+import Modal from '@/componentes/botao ordenar';
 
 const page = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
       <main className='bg-[#ededed]'>
         <CabecalhoDeslogado />
@@ -20,7 +21,7 @@ const page = () => {
             <div className='bg-[#ffffff] flex items-center justify-between cursor-pointer rounded-full p-2 text-center w-96 h-20 font-thin text-xl place-content-center'>
               <img src="/lupa.svg" alt="" />
 
-              <input type="text" placeholder='Buscar Professor(a)' className='flex-auto '/>
+              <input type="text" placeholder='  Buscar Professor(a)' className='flex-auto focus outline-none'/>
             </div>
           </div>
 
@@ -51,10 +52,9 @@ const page = () => {
                 Todos os Professores
               </h1>
             </div>
-            <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl'>
-              <button>
-                Ordenar
-              </button>
+            <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl z-50'>
+            <button onClick={() => setOpenModal(true)}>Ordenar</button>
+            <Modal isOpen={openModal} onClose={() => setOpenModal(false)} />
             </div>
           </div>
 

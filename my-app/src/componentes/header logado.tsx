@@ -2,7 +2,7 @@ import React from 'react'
 
 const CabecalhoLogado = () => {
   return (
-    <header className='bg-[#a4fed3] flex p-4 justify-between'>
+    <header className='bg-[#a4fed3] flex p-4 justify-between h-24'>
         <div className=''>
           <img src='/image 2.svg' alt=''/>
         </div>

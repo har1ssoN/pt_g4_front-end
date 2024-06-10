@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import CabecalhoDeslogado from "@/componentes/header deslogado";
+import Deslog from "../page";
 
 export type EditProps = {
   params: {
@@ -16,7 +18,7 @@ interface User {
   email: string;
   department: string;
   course: string;
-  profile_image?: Uint8Array;
+  profile_image?: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -53,14 +55,7 @@ const Edit = (props: EditProps) => {
     return <div>User not found</div>;
   }
 
-  return (
-    <div>
-      <h1>Name: {user.name}</h1>
-      <p>Email: {user.email}</p>
-      <p>Department: {user.department}</p>
-      <p>Course: {user.course}</p>
-    </div>
-  );
+  return <Deslog user={user} />;
 };
 
 export default Edit;

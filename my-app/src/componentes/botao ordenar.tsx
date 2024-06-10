@@ -5,13 +5,16 @@ export default function Modal({ isOpen }) {
   if (isOpen) {
     return (
       <div className={styles.modal}> 
-        Nome
+      <button>Nome</button>
         <br className={styles.linha}/>
-        Matéria
-        <br className={styles.linha}/>      
-        Recentes
+        <hr />
+        <button>Matéria</button>
+        <br className={styles.linha}/>   
+        <hr />   
+        <button>Recentes</button>
         <br className={styles.linha}/>
-        Antigas
+        <hr />
+        <button>Antigas</button>
       </div>
     );
   }
