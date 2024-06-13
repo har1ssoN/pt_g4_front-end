@@ -2,6 +2,9 @@
 import { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import React from 'react'
+import { useRouter } from "next/navigation";
+import { useRef } from 'react';
 
 export default function LoginPage() {
   const [isClient, setIsClient] = useState(false);
@@ -25,6 +28,12 @@ export default function LoginPage() {
   if (!isClient) {
     return <></>;
   }
+
+  const router = useRouter();
+
+  const handleSignupClick = () => {
+    router.push('/signup'); 
+  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -66,7 +75,7 @@ export default function LoginPage() {
                       >
                         Entrar
                       </button>
-                      <button
+                      <button onClick={handleSignupClick} 
                         type="button"
                         className="w-1/3 bg-emerald-200 text-blue-950 border border-blue-950 py-3 px-0 mt-4 rounded-md hover:bg-emerald-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
                       >

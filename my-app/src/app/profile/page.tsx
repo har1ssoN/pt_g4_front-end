@@ -3,23 +3,27 @@ import React, { useState } from 'react';
 import EditarPerfil from '@/componentes/editar perfil';
 import CabecalhoLogado from '@/componentes/header logado';
 import EditComentario from '@/componentes/editar comentario';
-import ModalComentarios from '@/componentes/postar novo comentario';
 import axios from 'axios';
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
     const [openEditarPerfil, setOpenEditarPerfil] = useState(false);
     const [openEdit, setLocalOpenEdit] = useState(false);
-    const [openComentarios, setOpenComentarios] = useState(false);
 
     const handleOpenEdit = (isOpen) => {
         setLocalOpenEdit(isOpen);
         setOpenEdit(isOpen);
     };
 
-    const handleOpenComentarios = (isOpen) => {
-        setOpenComentarios(isOpen);
+    const router = useRouter();
+
+    const handleComentariosClick = () => {
+        router.push('/avaliacoes'); 
     };
 
+    const handleFeedClick = () => {
+        router.push('/feed/logado'); 
+    };
 
     return (
         <div className="telainteira flex flex-col">
@@ -28,7 +32,7 @@ export default function Profile() {
                 <div className="relative h-full bg-white w-2/5">
                     <div className="quadrado_verde flex w-full h-32 bg-green-400">
                         <div className="absolute -left-11 top-1">
-                            <button><img src="/back.png" className="h-10 w-10" alt="" /></button>
+                            <button onClick={handleFeedClick}><img src="/back.png" className="h-10 w-10" alt="" /></button>
                         </div>
                     </div>
                     <img src="/morty.png" className="absolute top-16 left-28 transform -translate-x-1/2 rounded-full h-36 w-36" alt="Morty" />
@@ -67,8 +71,7 @@ export default function Profile() {
                                     </p>
                                     <div className='flex items-center justify-between'>
                                         <div className='flex'>
-                                            <button onClick={() => handleOpenComentarios(true)}><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
-                                            <ModalComentarios isOpen={openComentarios} onClose={() => handleOpenComentarios(false)} />
+                                            <button onClick={handleComentariosClick}><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
                                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                                         </div>
                                         <div>
@@ -90,8 +93,7 @@ export default function Profile() {
                                     </p>
                                     <div className='flex items-center justify-between'>
                                         <div className='flex'>
-                                        <button onClick={() => handleOpenComentarios(true)}><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
-                                        <ModalComentarios isOpen={openComentarios} onClose={() => handleOpenComentarios(false)} />
+                                        <button onClick={handleComentariosClick}><img src="/comentario.png" className='h-7 w-7' alt="" /></button>
                                             <p className='mt-1 ml-2 text-sm'>2 comentários</p>
                                         </div>
                                     </div>

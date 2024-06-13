@@ -1,14 +1,30 @@
+'use client';
+import React from 'react'
+import { useRouter } from "next/navigation";
 
-import React from 'react';
 export default function loga() {
+    const router = useRouter();
+
+  const handleLoginClick = () => {
+    router.push('/login'); 
+  };
+
+  const handleFeedClick = () => {
+    router.push('/feed/logado');
+  };
+
+  const handleProfileClick = () => {
+    router.push('/profile'); 
+  };
+
     return (
         <div className="telainteira flex flex-col">
             <div className="header flex w-full h-15 px-4 py-4 bg-[#A4FED3]">
                 <img src="/unb_logo.png" className="h-8 w-16" alt="" />
                 <div className="right-images flex flex-row justify-end w-full bg-[#A4FED3]">
                     <button><img src="/notificacao.png" className="h-8 w-8 mx-20" alt="" /></button>
-                    <button><img src="/morty.png" className="rounded-full  h-9 w-9 mx-2" alt="" /></button>
-                    <button><img src="/sair.png" className="h-8 w-8 mx-2" alt="" /></button>
+                    <button onClick={handleProfileClick}><img src="/morty.png" className="rounded-full  h-9 w-9 mx-2" alt="" /></button>
+                    <button onClick={handleLoginClick}><img src="/sair.png" className="h-8 w-8 mx-2" alt="" /></button>
 
                 </div>
             </div>
@@ -16,7 +32,7 @@ export default function loga() {
                 <div className="relative h-full bg-white w-2/5">
                     <div className="quadrado_verde flex w-full h-32 bg-green-400">
                         <div className=" absolute -left-11 top-1">
-                            <button><img src="/back.png" className="h-10 w-10" alt="" /></button>
+                            <button onClick={handleFeedClick}><img src="/back.png" className="h-10 w-10" alt="" /></button>
                         </div>
                     </div>
 
@@ -37,7 +53,7 @@ export default function loga() {
                         </div>
                         <div className="flex flex-col justify-left bg-green-400 rounded-3xl px-4 py-4 mx-2 my-6">
                             <div className="flex">
-                                <img src="/morty.png" className=" h-10 w-10 bg-[#A4FED3] rounded-full" alt="" />
+                                <img onClick={handleProfileClick} src="/morty.png" className=" h-10 w-10 bg-[#A4FED3] rounded-full" alt="" />
                                 <p className='w-full mt-2 ml-2 text-sm'>Morty Gamer · 15/04/2024, ás 21:42 · Rick · Viagem Interdimensional
                                 </p>
                             </div>

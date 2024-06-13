@@ -1,3 +1,4 @@
+'use client';
 import CabecalhoDeslogado from '@/componentes/header deslogado';
 import React from 'react';
 import { useRouter } from 'next/navigation';

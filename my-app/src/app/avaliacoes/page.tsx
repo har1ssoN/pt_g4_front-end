@@ -3,17 +3,23 @@ import React, { useState } from 'react';
 import Avaliacao from '@/componentes/avaliacao';
 import Comentario from '@/componentes/comentario';
 import CabecalhoLogado from '@/componentes/header logado';
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
     const [openEdit, setOpenEdit] = useState(false);
 
+    const router = useRouter();
+
+    const handleProfileClick = () => {
+        router.push('/profile'); 
+    };
     return (
         <main className="h-screen bg-[#ededed]">
             <CabecalhoLogado />
             <div className="flex justify-center h-auto">
                 <div className="relative h-full w-2/5 bg-[#FFFFFF]">
                     <div className="absolute -left-11 top-1">
-                        <button><img src="/voltar.svg" className="h-10 w-10" alt="" /></button>
+                        <button onClick={handleProfileClick}><img src="/voltar.svg" className="h-10 w-10" alt="" /></button>
                     </div>
                     <div className="border border-[#7e7e7e] min-h-[592px]">
                         <Avaliacao setOpenEdit={setOpenEdit} />

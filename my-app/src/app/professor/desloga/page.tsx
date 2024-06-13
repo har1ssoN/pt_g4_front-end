@@ -1,11 +1,24 @@
-import React from 'react';
+'use client';
+import React from 'react'
+import { useRouter } from "next/navigation";
+
 export default function desloga() {
+    const router = useRouter();
+
+  const handleLoginClick = () => {
+    router.push('/login'); 
+  };
+
+  const handleFeedDeslogaClick = () => {
+    router.push('/feed/deslogado'); 
+  };
+
     return (
         <div className="telainteira flex flex-col">
             <div className="header flex w-full h-15 px-4 py-4 bg-[#A4FED3]">
                 <img src="/unb_logo.png" className="h-8 w-16" alt="" />
                 <div className="right-images flex flex-row justify-end w-full bg-[#A4FED3]">
-                    <button className='h-9 w-24 bg-cyan-400 rounded-lg'>Login</button>
+                    <button onClick={handleLoginClick} className='h-9 w-24 bg-cyan-400 rounded-lg'>Login</button>
 
                 </div>
 
@@ -14,7 +27,7 @@ export default function desloga() {
                 <div className="relative h-full bg-white w-2/5">
                     <div className="quadrado_verde flex w-full h-32 bg-green-400">
                         <div className=" absolute -left-11 top-1">
-                            <button><img src="/back.png" className="h-10 w-10" alt="" /></button>
+                            <button onClick={handleFeedDeslogaClick}><img src="/back.png" className="h-10 w-10" alt="" /></button>
                         </div>
                     </div>
 
