@@ -26,7 +26,7 @@ export default function EditarPerfil({ isOpen, onClose, userId }) {
 
         const handleSubmit = (values: any) => {
             console.log(values);
-            const response = axios.patch('http://localhost:3001/user/1',values  )
+            const response = axios.patch(`http://localhost:3001/user/${userId}`,values  )
           };
 
       
