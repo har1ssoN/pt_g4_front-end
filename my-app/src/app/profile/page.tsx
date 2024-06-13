@@ -4,6 +4,7 @@ import EditarPerfil from '@/componentes/editar perfil';
 import CabecalhoLogado from '@/componentes/header logado';
 import EditComentario from '@/componentes/editar comentario';
 import ModalComentarios from '@/componentes/postar novo comentario';
+import axios from 'axios';
 
 export default function Profile() {
     const [openEditarPerfil, setOpenEditarPerfil] = useState(false);
