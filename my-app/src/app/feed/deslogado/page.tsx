@@ -4,9 +4,18 @@ import Cabecalho from '@/componentes/header deslogado'
 import Professor from '@/componentes/caixa professor'
 import CabecalhoDeslogado from '@/componentes/header deslogado';
 import Modal from '@/componentes/botao ordenar';
+import { useRouter } from "next/navigation";
+
 
 const page = () => {
   const [openModal, setOpenModal] = useState(false);
+
+  const router = useRouter();
+
+  const handleProfessorClick = () => {
+    router.push('/professor/desloga'); 
+  };
+
   return (
       <main className='bg-[#ededed]'>
         <CabecalhoDeslogado />
@@ -27,7 +36,7 @@ const page = () => {
 
           <div className='flex gap-16 mx-auto w-11/12 justify-center p-6'>
             <div className=' text-center cursor-pointer bg-[#ffffff] p-5 rounded-2xl'>
-              <img src="/image Rick.svg" alt="" />
+              <button onClick={handleProfessorClick}><img src="/image Rick.svg" alt="" /></button>
               <div>
                 <h1 className='font-semibold text-xl'>
                   Rick Sanchez

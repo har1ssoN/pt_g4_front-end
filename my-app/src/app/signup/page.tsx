@@ -19,7 +19,7 @@ export default function Signup() {
             name: nome,
             email: email,
             course: curso,
-            departament: departamento,
+            department: departamento,
             password,
         }
         const response = await axios.post("http://localhost:3001/user",data)
