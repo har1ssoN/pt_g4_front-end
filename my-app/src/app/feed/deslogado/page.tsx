@@ -62,7 +62,7 @@ const page = () => {
               </h1>
             </div>
             <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl  justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl z-50'>
-            <button onClick={() => setOpenModal(true)}>Ordenar</button>
+            <button onClick={() => setOpenModal(!openModal)}>Ordenar</button>
             <Modal isOpen={openModal} onClose={() => setOpenModal(false)} />
             </div>
           </div>

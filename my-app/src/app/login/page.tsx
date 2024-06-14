@@ -2,12 +2,13 @@
 import { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import React from 'react'
+import React from 'react';
 import { useRouter } from "next/navigation";
-import { useRef } from 'react';
+import axios from 'axios';
 
 export default function LoginPage() {
   const [isClient, setIsClient] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     setIsClient(true);
@@ -20,20 +21,35 @@ export default function LoginPage() {
 
   const initialValues = { email: '', password: '' };
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const router = useRouter();
+
+  const handleSubmit = async (values: any) => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/login', values);
+      console.log('Login bem-sucedido:', response.data);
+      router.push('/feed/logado'); 
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      if (error.response && error.response.status === 404) {
+        
+        setError('Email ou senha incorreto(s)');
+      } else if (error.response && error.response.data && error.response.data.message) {
+        
+        setError(error.response.data.message);
+      } else {
+        
+        setError('Erro ao tentar fazer login');
+      }
+    }
   };
 
- 
+  const handleSignupClick = () => {
+    router.push('/signup');
+  };
+
   if (!isClient) {
     return <></>;
   }
-
-  const router = useRouter();
-
-  const handleSignupClick = () => {
-    router.push('/signup'); 
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -68,6 +84,9 @@ export default function LoginPage() {
                       placeholder="Password"
                       className="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                     />
+                    {error && (
+                      <div className="text-red-600 text-sm mt-2">{error}</div>
+                    )}
                     <div className="mt-10 flex space-x-5 justify-center px-10">
                       <button
                         type="submit"

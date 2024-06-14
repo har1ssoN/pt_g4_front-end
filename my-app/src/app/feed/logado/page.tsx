@@ -1,14 +1,14 @@
-'use client';
+"use client"
 import React, { useState } from 'react';
 import Professor from '@/componentes/caixa professor';
 import CabecalhoLogado from '@/componentes/header logado';
 import Modal from '@/componentes/botao ordenar';
 import NovaPub from '@/componentes/nova publicacao';
 
-
 const Page = () => {
   const [openModal, setOpenModal] = useState(false);
   const [openNovaPub, setOpenNovaPub] = useState(false);
+
   return (
     <main className='bg-[#ededed]'>
       <CabecalhoLogado />
@@ -45,9 +45,8 @@ const Page = () => {
               <button onClick={() => setOpenNovaPub(true)}>Nova Publicação</button>
               <NovaPub isOpen={openNovaPub} onClose={() => setOpenNovaPub(false)} />
             </div>
-            <div className='bg-[#00abed]
-             text-white rounded-full w-36 h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl z-50'>
-              <button onClick={() => setOpenModal(true)}>Ordenar</button>
+            <div className='bg-[#00abed] text-white rounded-full w-36 h-12 text-center text-2xl justify-center mx-4 content-center p-3 border-white border-2 cursor-pointer shadow-xl z-50'>
+              <button onClick={() => setOpenModal(!openModal)}>Ordenar</button>
               <Modal isOpen={openModal} onClose={() => setOpenModal(false)} />
             </div>
           </div>
