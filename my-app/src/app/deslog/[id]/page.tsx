@@ -21,6 +21,7 @@ interface Avaliacao {
   disciplinaId: number;
   professor?: Professor;
   disciplina?: Disciplina;
+  commentsCount?: number;
 }
 
 interface Professor {
@@ -58,14 +59,21 @@ const Edit = (props: EditProps) => {
         const response = await axios.get(`http://localhost:3001/user/${userId}`);
         const userData = response.data;
 
-        // Fetch professor and disciplina
+        const commentsResponse = await axios.get('http://localhost:3001/comentario');
+        const comments = commentsResponse.data;
+
+
         const avaliacoesWithDetails = await Promise.all(userData.Avaliacoes.map(async (avaliacao: Avaliacao) => {
           const professorResponse = await axios.get(`http://localhost:3001/professor/${avaliacao.professorId}`);
           const disciplinaResponse = await axios.get(`http://localhost:3001/disciplina/${avaliacao.disciplinaId}`);
+
+          const commentsCount = comments.filter((comment: any) => comment.avaliacaoId === avaliacao.id).length;
+
           return {
             ...avaliacao,
             professor: professorResponse.data,
             disciplina: disciplinaResponse.data,
+            commentsCount,
           };
         }));
 

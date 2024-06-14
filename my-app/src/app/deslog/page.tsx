@@ -13,6 +13,7 @@ interface Avaliacao {
   disciplinaId: number;
   professor?: Professor;
   disciplina?: Disciplina;
+  commentsCount?: number;
 }
 
 interface Professor {
@@ -89,7 +90,7 @@ export default function Deslog({ user }: DeslogProps) {
                   <div className='flex items-center justify-between'>
                     <div className='flex'>
                       <button><img src="/comentario.png" className='h-7 w-7' alt="Comments Icon" /></button>
-                      <p className='mt-1 ml-2 text-sm'>Comentários</p>
+                      <p className='mt-1 ml-2 text-sm'>{avaliacao.commentsCount} comentários</p>
                     </div>
                   </div>
                 </div>
